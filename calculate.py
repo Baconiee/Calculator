@@ -11,16 +11,16 @@ root.geometry("300x420")
 
 label_frame = Label()
 
-delete_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/images.png").resize((20, 20), Image.ANTIALIAS))
-x_square_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/x-squared.png").resize((60, 60), Image.ANTIALIAS))
-square_root_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/square_root_x.png").resize((40, 40), Image.ANTIALIAS))
-division_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/division.png").resize((15, 15), Image.ANTIALIAS))
-multiply_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/multiply.png").resize((20, 20), Image.ANTIALIAS))
-subtraction_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/subtraction.png").resize((20, 20), Image.ANTIALIAS))
-addition_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/addition.png").resize((20, 20), Image.ANTIALIAS))
-negate_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/negate.png").resize((20, 20), Image.ANTIALIAS))
-calculation_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/equal.png").resize((20, 20), Image.ANTIALIAS))
-comma_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/dot.png").resize((10, 10), Image.ANTIALIAS))
+delete_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/icons/images.png").resize((20, 20), Image.ANTIALIAS))
+x_square_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/icons/x-squared.png").resize((60, 60), Image.ANTIALIAS))
+square_root_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/icons/square_root_x.png").resize((40, 40), Image.ANTIALIAS))
+division_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/icons/division.png").resize((15, 15), Image.ANTIALIAS))
+multiply_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/icons/multiply.png").resize((20, 20), Image.ANTIALIAS))
+subtraction_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/icons/subtraction.png").resize((20, 20), Image.ANTIALIAS))
+addition_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/icons/addition.png").resize((20, 20), Image.ANTIALIAS))
+negate_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/icons/negate.png").resize((20, 20), Image.ANTIALIAS))
+calculation_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/icons/equal.png").resize((20, 20), Image.ANTIALIAS))
+dot_icon = ImageTk.PhotoImage(Image.open("C:/Users/albus/Desktop/Calculator/icons/dot.png").resize((10, 10), Image.ANTIALIAS))
 
 current_text = "" 
 
@@ -169,7 +169,7 @@ def divide_one():
 
         label_frame.config(text=current_text)
 
-def comma():
+def dot():
     global current_text
 
     if current_text and current_text[-1].isdigit():
@@ -299,8 +299,10 @@ def calculation():
                 result = eval(f"{current_text[:i]} / {current_text[i+1:]}")
                 current_text = str(result)
             except (ValueError, ZeroDivisionError):
+
                 if __name__ == "__main__":
                     import webbrowser  
+
                 webbrowser.open_new(r"https://www.youtube.com/watch?v=31g0YE61PLQ")  
 
     label_frame.config(text=current_text)
@@ -403,7 +405,7 @@ number_zero_button = Button(root, text="0", width=7, height=2, command=button_ze
 number_zero_button['font'] = number_zero_button_font
 number_zero_button.place(x=75, y=370)
 
-comma_button = Button(root, width=67, image=comma_icon, height=44, command=comma)
+comma_button = Button(root, width=67, image=dot_icon, height=44, command=dot)
 comma_button.place(x=150, y=370)
 
 equal_button = Button(root, width=67, image=calculation_icon, bg="#1874CD", height=44, command=calculation)
